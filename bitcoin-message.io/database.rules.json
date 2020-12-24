@@ -1,0 +1,102 @@
+{
+  "rules": {
+    ".write": false,
+    
+    "messages": {
+      ".read": false,
+      ".indexOn": ["email", "createdTimestamp"],
+      
+      "$messageId": {
+        ".read": true,
+        ".validate": "newData.hasChildren(['id', 'message', 'createdTimestamp'])",
+        
+        "id": {
+          ".validate": "newData.val() === $messageId"
+        },
+        "message": {
+          ".validate": "newData.isString() && newData.val().length <= 80"
+        },
+        "email": {
+          ".validate": "newData.isString() && newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i)"
+        },
+        "isPublished": {
+          ".validate": "newData.isBoolean()"
+        },
+        "createdTimestamp": {
+          ".validate": "newData.val() <= now"
+        },
+        "blockchainNetwork": {
+          ".validate": "newData.isString()"
+        },
+        "blockchainTxId": {
+          ".validate": "newData.isString()"
+        },
+        "clientIp": {
+          ".validate": "newData.isString()"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    
+    "publishedMessages": {
+      ".read": true,
+      ".indexOn": ["createdTimestamp"],
+      
+      "$blockchainTxId": {
+        ".validate": "newData.hasChildren(['message', 'createdTimestamp', 'blockchainTxId'])",
+        
+        "message": {
+          ".validate": "newData.isString()"
+        },
+        "blockchainNetwork": {
+          ".validate": "newData.isString()"
+        },
+        "blockchainTxId": {
+          ".validate": "newData.val() == $blockchainTxId"
+        },
+        "createdTimestamp": {
+          ".validate": "newData.val() <= now"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    
+    "processedDonations": {
+      ".read": false,
+
+      "$donationId": {
+        ".validate": "newData.hasChildren(['id', 'email', 'amount', 'currency'])",
+
+        "id": {
+          ".validate": "newData.isString()"
+        },
+        "email": {
+          ".validate": "newData.isString() && newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i)"
+        },
+        "amount": {
+          ".validate": "newData.isString()"
+        },
+        "currency": {
+          ".validate": "newData.isString()"
+        },
+        "messageId": {
+          ".validate": "newData.isString()"
+        },
+        "errorCode": {
+          ".validate": "newData.isString()"
+        },
+        "errorMessage": {
+          ".validate": "newData.isString()"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+
+    }
+  }
+}

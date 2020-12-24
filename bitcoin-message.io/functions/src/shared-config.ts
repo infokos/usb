@@ -1,0 +1,1 @@
+../../src/shared/shared-config.ts

@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "live": "bitcoin-message",
+    "staging": "bitcoin-message-dev",
+    "default": "bitcoin-message-dev"
+  }
+}
