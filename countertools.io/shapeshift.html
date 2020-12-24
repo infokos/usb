@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title id="pageTitle"></title>
+	<link rel="shortcut icon" href="img/xcpblackyellow.ico">
+	<link href="settings/styles.css" rel="stylesheet">
+	<script src="settings/general.txt"></script>
+	<script src="settings/assets.txt"></script>
+	<script src="settings/menu.txt"></script>
+	<script src="settings/encryptedpp.txt"></script>
+	<script src="settings/asset_list.txt" async></script>
+	<script src="drawmenus.js"></script>
+	<script src="lib/jquery/jquery-2.1.4.js"></script>
+	<script src="lib/cryptojs v3.1.2/rollups/aes.js"></script>
+	<script src="lib/cryptojs v3.1.2/rollups/sha256.js"></script>
+	<script src="lib/seedrandom/seedrandom.min.js"></script>
+	<script src="lib/chrome-wallet-mod/js/bitcore/bitcore.min.js"></script>
+	<script src="lib/xcp-toolbox/passphrase.js"></script>
+	<script src="lib/xcp-toolbox/password.js"></script>
+	<script src="lib/xcp-toolbox/api.js"></script>
+	<script src="lib/xcp-toolbox/misc.js"></script>
+	<script src="lib/qrcodejs/qrcode.js"></script>
+	<script src="lib/chrome-wallet-mod/js/aes.js"></script>
+	<script src="lib/chrome-wallet-mod/tipsplash.js"></script>
+	<script src="lib/chrome-wallet-mod/issueticker.js"></script>
+	<script src="lib/chrome-wallet-mod/js/mnemonic.js"></script>
+	<script src="lib/chrome-wallet-mod/js/utxo.js"></script>
+	<script src="lib/chrome-wallet-mod/js/xcp-js/transactions.js"></script>
+	<script src="lib/chrome-wallet-mod/js/xcp-js/issuance.js"></script>
+	<script src="lib/chrome-wallet-mod/js/xcp-js/rc4.js"></script>
+	<script src="lib/chrome-wallet-mod/js/xcp-js/convert-type.js"></script>
+	<script src="lib/chrome-wallet-mod/js/xcp-js/decode.js"></script>
+	<script src="lib/chrome-wallet-mod/js/biginteger.js"></script>
+	<script src="lib/chrome-wallet-mod/js/hex2dec-cs.js"></script>
+	<script src="lib/chrome-wallet-mod/js/bitcoinsig.js"></script>
+	<script src="lib/chrome-wallet-mod/js/bitcoinjs-min.js"></script>
+	<script src="lib/chrome-wallet-mod/js/detect.js"></script>
+	<script src="lib/anchorme/anchorme.min.js"></script>
+	<script src="lib/cryptojs v3.1.2/components/enc-base64-min.js"></script>
+
+    
+<script>
+    function prepare() {
+        getRates();
+        setTimeout(printPrices, 3000);
+        
+    }
+    var rates = {btc_xcp:"?", xcp_btc:"?", btc_bcy:"?", bcy_btc:"?", btc_gemz:"?", gemz_btc:"?"};
+    var btcPrice = '?';
+    var myBalances = {btc:"?", xcp:"?", bcy:"?", gemz:"?"};
+    function getRates() {
+        for (var key in rates) {
+           try {
+            jsondata = jsonFromURL("https://shapeshift.io/rate/" + key);
+            if (jsondata == "-1") throw "shapeshift api does not work";
+            rates[key] = Number(jsondata['rate']);
+           } catch(err) {}
+        }
+        btcPrice = getPrice('BTC');
+        myBalances.btc = getBalance(MY_ADDR[0],'BTC');
+        myBalances.xcp = getBalance(MY_ADDR[0],'XCP');
+        myBalances.bcy = getBalance(MY_ADDR[0],'BITCRYSTALS');
+        myBalances.gemz = getBalance(MY_ADDR[0],'GEMZ');
+    }
+    function printPrices() {
+        document.getElementById('buyxcp').innerHTML = (1 / rates.btc_xcp) * btcPrice.usd;
+        document.getElementById('sellxcp').innerHTML = rates.xcp_btc * btcPrice.usd;
+        document.getElementById('buybcy').innerHTML = (1 / rates.btc_bcy) * btcPrice.usd;
+        document.getElementById('sellbcy').innerHTML = rates.bcy_btc * btcPrice.usd;
+        document.getElementById('buygemz').innerHTML = (1 / rates.btc_gemz) * btcPrice.usd;
+        document.getElementById('sellgemz').innerHTML = rates.gemz_btc * btcPrice.usd;
+    }
+</script>
+</head>
+<body onload="drawMenus();prepare();">
+<div id="container">
+<header id="topHeader"></header>
+<nav id="leftMenu"></nav>
+<section id="mainSection">
+
+<h1>ShapeShift</h1>
+ShapeShift lets you qiickly buy and sell XCP and some other Counterparty tokens. 
+    
+    <table>
+        <tr>
+            <td>Buy XCP</td><td id="buyxcp"></td>
+        </tr><tr>
+            <td>Sell XCP</td><td id="sellxcp"></td>
+        </tr><tr>
+            <td>Buy BitCrystals</td><td id="buybcy"></td>
+        </tr><tr>
+            <td>Sell BitCrystals</td><td id="sellbcy"></td>
+        </tr><tr>
+            <td>Buy GEMZ</td><td id="buygemz"></td>
+        </tr><tr>
+            <td>Sell GEMZ</td><td id="sellgemz"></td>
+        </tr>
+    </table>
+
+</section>
+<footer id="bottomFooter"></footer>
+</div>
+
+</body>
+</html>
