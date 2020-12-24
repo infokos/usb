@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Consulting</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+      <div class="navbar" id="stickynavbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="resources.html">Resources</a>
+        <a href="javascript:void(0);" class="icon" onclick="responsiveNavbarFunction">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+
+
+      <script>
+      function responsiveNavbarFunction() {
+        var x = document.getElementById("stickynavbar");
+        if (x.className === "navbar") {
+          x.className += " responsive";
+        } else {
+          x.className = "navbar";
+        }
+      }
+      </script>
+
+        <header class="header">
+            <h1>Consult with me</h1>
+        </header>
+
+
+        <article class="main">
+
+            <p>Want to buy Bitcoin for yourself, family or friends? If you want to securely store your bitcoin and need help along the way contact me and we schedule a video call.</p>
+
+            <h2>Video call</h2>
+            <p>Fee: 50$ per hour. 20% discount if paid in Bitcoin</p>
+        </article>
+        <aside class="aside aside-1">Reflinks and best crypto companies</aside>
+        <aside class="aside aside-2">Helpful information</aside>
+        <footer class="footer"></footer>
+    </div>
+
+</body>
+
+</html>

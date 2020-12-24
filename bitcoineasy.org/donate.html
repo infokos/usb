@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Donate.</title>
+  <meta name="donate" content="donation address">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://raw.githubusercontent.com/bitcoineasy/images/master/bitcoinfavicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="toggle"><i class="fa fa-moon-o" aria-hidden="true"></i></div>
+  <div class="content">
+
+    <div class="navbar" id="mynavbar">
+      <a href="index.html">Home</a>
+      <a href="resources.html">Resources</a>
+      <a href="faqs.html">FAQs</a>
+      <a href="donate.html">Donate</a>
+<!--      <div class="dropdown">
+        <button class="dropbtn"><i class="fas fa-language"></i>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="deutsch.html">Deutsch</a>
+        </div>
+      </div>-->
+      <a href="javascript:void(0);" class="icon" onclick="responsiveNavbarFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    <script>
+      function responsiveNavbarFunction() {
+        var x = document.getElementById("mynavbar");
+        if (x.className === "navbar") {
+          x.className += " responsive";
+        } else {
+          x.className = "navbar";
+        }
+      }
+    </script>
+
+    <header class="header">
+      <a href="https://bitcoineasy.github.io"> <img src="https://raw.githubusercontent.com/bitcoineasy/images/master/Bitcoin.png" alt="Bitcoin logo" class="logo"></a>
+      <h2>Donation address</h2>
+    </header>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i style='font-size:24px' class='fas'>&#xf062;</i></button>
+
+    <article class="main">
+
+      <img src="https://raw.githubusercontent.com/bitcoineasy/images/master/donate.png" alt="donation address" class="center"></a>
+      <p></p>
+
+    </article>
+
+
+
+
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('.toggle').click(function() {
+            $('.toggle').toggleClass('active')
+            $('body').toggleClass('night')
+          })
+        })
+      </script>
+
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+          scrollFunction()
+        };
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            document.getElementById("myBtn").style.display = "block";
+          } else {
+            document.getElementById("myBtn").style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+      </script>
+
+    </article>
+    <aside class="aside aside-1"></aside>
+    <aside class="aside aside-2"></aside>
+    <footer class="footer">
+      <p style="font-size:14px">contact: <SCRIPT TYPE="text/javascript">
+          emailE = 'protonmail.ch'
+
+          emailE = ('bitcoinsage' + '@' + emailE)
+
+          document.write('<A href="mailto:' + emailE + '">' + emailE + '</a>')
+        </script>
+      </p>
+
+    </footer>
+  </div>
+
+</body>
+
+</html>

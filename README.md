@@ -1,0 +1,1 @@
+# copy koleksi offline

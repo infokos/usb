@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,shrink-to-fit=no" />
+    <title>Bitcoin says</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fira+Mono|Merriweather">
+    <style>
+        body {
+            background-color: #fff;
+            color: #0d579b;
+            font-family: 'Merriweather', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        a:link,
+        a:visited {
+            color: #ee9209;
+            text-decoration: none;
+        }
+        a:hover,
+        a:focus,
+        a:active {
+            text-decoration: underline;
+        }
+        header {
+            background-color: #0d579b;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 0.07em;
+            padding: 3em;
+            margin-bottom: -3em;
+        }
+        header a:link,
+        header a:visited {
+            color: #fff;
+        }
+        .form p {
+            margin-top: 3rem;
+        }
+        form,
+        fieldset {
+            border: none;
+            min-width: 0;
+            padding: 0;
+        }
+        legend {
+            display: none;
+        }
+        label span {
+            display: none;
+        }
+        input,
+        button {
+            box-sizing: border-box;
+            font-size: 2rem;
+            padding: 0.5rem;
+        }
+        input {
+            border: 1px solid #666;
+            display: inline-block;
+            margin-bottom: 1rem;
+            max-width: 40rem;
+            overflow: hidden;
+            width: 100%;
+        }
+        button {
+            background-color: #ee9209;
+            border: none;
+            border-radius: 0.5rem;
+            color: #fff;
+            transition: opacity 0.5s;
+        }
+        section {
+            padding: 3em;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        h1 .transaction-hash,
+        .example {
+            max-width: 80%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        h1 .transaction-hash {
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        div p {
+            white-space: pre-wrap;
+        }
+        div p:not(:only-child) {
+            font-family: 'Fira Mono', monospace;
+            margin: 0.2rem 0;
+        }
+        code {
+            background: rgb(40, 44, 52);
+            color: rgb(171, 178, 190);
+            display: block;
+            font-family: 'Fira Mono', monospace;
+            font-size: 0.6rem;
+            max-width: 100%;
+            margin: 1rem 0;
+            overflow: scroll;
+            padding: 2em;
+        }
+        footer {
+            display: block;
+            margin: 3rem;
+        }
+        footer small {
+            display: block;
+            margin-bottom: 1rem;
+        }
+        #donate {
+            opacity: 0;
+        }
+        body *:not(h1) {
+            opacity: 0;
+        }
+        body.has-transaction .form,
+        body.no-transaction .transaction {
+            display: none;
+        }
+        body.loaded * {
+            opacity: 1;
+        }
+        body.loaded button:disabled {
+            opacity: 0.4;
+        }
+        body.loaded .copied {
+            opacity: 0;
+            transition: opacity 3s;
+        }
+        body.loaded .copied.visible {
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <header><a href="/">The Bitcoin blockchain says&hellip;</a></header>
+    <section class="transaction">
+        <h1></h1>
+        <div></div>
+        <pre class="output-script"></pre>
+        <p><a href="http://www.righto.com/2014/02/ascii-bernanke-wikileaks-photographs.html">Learn more about hidden messages in the blockchain</a></p>
+        <h2>Api response</h2>
+        <pre><code></code></pre>
+    </section>
+    <section class="form">
+        <p>Search for a transaction to see any associated messages</p>
+        <form
+            action="#"
+            method="get">
+            <fieldset>
+                <legend>Find transaction</legend>
+                <label>
+                    <span>Transaction</span>
+                    <input placeholder="Transaction id/hash" />
+                </label>
+                <button disabled="disabled">Search</button>
+                <p class="example">Example: 930a2114cdaa86e1fac46d15c74e81c09eee1d4150ff9d48e76cb0697d8e1d72</p>
+            </fieldset>
+        </form>
+        <p><a href="http://www.righto.com/2014/02/ascii-bernanke-wikileaks-photographs.html">Learn more about hidden messages in the blockchain</a></p>
+    </section>
+    <footer>
+        <small>QR Icon made by <a
+            href="http://www.flaticon.com/authors/dave-gandy"
+            title="Dave Gandy">Dave Gandy</a> from <a
+                href="http://www.flaticon.com"
+                title="Flaticon">www.flaticon.com</a> is licensed by <a
+                    href="http://creativecommons.org/licenses/by/3.0/"
+                    title="Creative Commons BY 3.0"
+                    target="_blank"
+                    rel="nofollow noreferrer">CC 3.0 BY</a></small>
+        <small>&copy; bitcoinsays.com 2017. Donate <a
+            class="donate"
+            data-clipboard-target="#donate"
+            href="https://blockchain.info/address/15fGpui3fMEWDrPzttm5JudCeWr8Cm1Fm6"
+            target="_blank"
+            rel="nofollow noreferrer">15fGpui3fMEWDrPzttm5JudCeWr8Cm1Fm6</a> <span class="copied"> Copied!<span></small>
+        <a
+            class="qr-code"
+            href="https://blockchain.info/address/15fGpui3fMEWDrPzttm5JudCeWr8Cm1Fm6"
+            target="_blank"
+            rel="nofollow noreferrer"><img
+                src="/qr-code.png"
+                alt="QR code"
+                title=""
+                width="32px"
+                height="32px" /></a>
+        <input
+            id="donate"
+            value="15fGpui3fMEWDrPzttm5JudCeWr8Cm1Fm6" />
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+    <script src="/fittext.js"></script>
+    <script>
+        (function () {
+            var txidRegex = /[a-fA-F0-9]{64}/;
+            var pathnames = window.location.pathname.split('/');
+            var transactionHash = pathnames[1] && pathnames[1].match(txidRegex);
+            var outputNo = transactionHash && pathnames[2];
+            var back = transactionHash && 'Transaction: <span class="transaction-hash">' + transactionHash + ' </span><a href="/' + transactionHash + '">¶</a>';
+            document.querySelector('h1').innerHTML = back;
+
+            function hex2a(hex) {
+                var str = '';
+                if (!hex) return str;
+                for (var i = 0; i < hex.length; i += 2) str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+                return str;
+            }
+
+            function showRateLimitError() {
+                var p = document.createElement('p');
+                p.innerHTML = 'There’s <a href="https://www.blockchain.com/api">a limit</a> to ' +
+                    'how quickly we can look up transactions, ' +
+                    'and it looks like we hit it. ' +
+                    'It will work again in a moment.';
+                    // 'You can help stop this happening by donating to the bitcoin wallet in the footer 😉';
+                document.querySelector('div').append(p);
+                document.body.classList.add('loaded');
+            }
+
+            function showDefaultError() {
+                var p = document.createElement('p');
+                p.innerHTML = 'There’s a problem fetching the transaction. Maybe try a different one';
+                document.querySelector('div').append(p);
+                document.body.classList.add('loaded');
+            }
+
+            function handleFetchError (response) {
+                if (!response.ok) {
+                    const status = response.status;
+                    return Promise.reject(status);
+                }
+                return response;
+            }
+
+
+            function renderOutputScript (data) {
+                var outputs = [].concat(outputNo ? data.out[outputNo] : data.out);
+                var decodedOutputScripts = outputs.reduce(function (a, b, i) {
+                    var messageString = hex2a(b.script);
+                    var outputUrl = [window.location.origin, transactionHash, outputNo || i].join('/');
+                    return a + '<p>' + messageString + ' <a href="' + outputUrl + '">¶</a></p>';
+                }, '');
+                document.querySelector('div').innerHTML = decodedOutputScripts;
+                return data;
+            }
+
+            function renderData(data) {
+                var clone = _.cloneDeep(data);
+                clone.hash = '<a href=\'https://blockchain.info/tx/' + clone.hash + '\'>' + clone.hash + '</a>';
+                clone.block_index = '<a href=\'https://blockchain.info/block-index/' + clone.block_index + '\'>' + clone.block_index + '</a>';
+                clone.inputs = clone.inputs.map(function (input) {
+                    return input.prev_out && input.prev_out.addr ? _.merge({}, input, {
+                        prev_out: {
+                            // txid: '<a href=\'https://blockchain.info/tx/' + input.prev_out.txid + '\'>' + input.from_output.txid + '</a>',
+                            addr: '<a href=\'https://blockchain.info/address/' + input.prev_out.addr + '\'>' + input.prev_out.addr + '</a>'
+                        }
+                    }) : input;
+                });
+                clone.out = clone.out.map(function (output) {
+                    return output.addr ? Object.assign({}, output, { addr: '<a href=\'https://blockchain.info/address/' + output.addr + '\'>' + output.addr + '</a>' }) : output;
+                });
+                document.querySelector('code').innerHTML = JSON.stringify(clone, null, 4);
+                return data;
+            }
+
+            function setUpDom () {
+                var messageElem;
+                var messageText;
+                var noWhiteSpace;
+                if (outputNo) {
+                    messageElem = document.querySelector('div');
+                    messageText = messageElem.innerText.trim().slice(1, -2);
+                    noWhiteSpace = messageText.indexOf(' ') === -1;
+                    window.fitText( messageElem, noWhiteSpace && 1.4);
+                }
+                document.body.classList.add('loaded')
+
+                document.querySelector('.donate').addEventListener('click', function (e) { e.preventDefault(); }, false);
+                var clipboard = new Clipboard('.donate');
+                clipboard.on('success', function(e) {
+                    var copied = document.querySelector('.copied');
+                    copied.classList.add('visible');
+                    setTimeout(function () {
+                        copied.classList.remove('visible');
+                    }, 3000);
+                });
+            }
+
+            if (transactionHash) {
+                document.body.classList.add('has-transaction');
+
+                var url = 'https://blockchain.info/rawtx/' + transactionHash + '?cors=true';
+                var myRequest = new Request(url, {
+                    url: url,
+                    mode: 'cors'
+                });
+                fetch(myRequest)
+                    .then(handleFetchError)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(renderOutputScript)
+                    .then(renderData)
+                    .then(setUpDom)
+                    .catch(function (err) {
+                        if (err === 404) {
+                            showDefaultError();
+                        } else {
+                            showRateLimitError();
+                        }
+                        console.error(err);
+                    });
+            } else {
+                var form = document.querySelector('form');
+                var formInput = form.querySelector('input');
+                var formButton = form.querySelector('button');
+
+                formInput.addEventListener('input', function (e) {
+                    e.preventDefault();
+                    var inputValue = formInput.value;
+                    if (inputValue.match(txidRegex)) {
+                        formButton.removeAttribute('disabled');
+                    } else {
+                        formButton.setAttribute('disabled', 'disabled');
+                    }
+                }, false);
+
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var inputValue = formInput.value;
+                    if (inputValue.match(txidRegex)) {
+                        window.location = [window.location.origin, inputValue].join('/');
+                    }
+                }, false);
+
+                document.body.classList.add('no-transaction', 'loaded');
+            }
+
+        }())
+    </script>
+</body>

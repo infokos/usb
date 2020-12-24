@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bitcoin secure storage.</title>
+  <meta name="Securely store your Bitcoins" content="Store your Bitcoin securely in simple steps">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://raw.githubusercontent.com/bitcoineasy/images/master/bitcoinfavicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="toggle"><i class="fa fa-moon-o" aria-hidden="true"></i></div>
+  <div class="content">
+
+    <div class="navbar" id="mynavbar">
+      <a href="index.html">Home</a>
+      <a href="resources.html">Resources</a>
+      <a href="faqs.html">FAQs</a>
+      <a href="donate.html">Donate</a>
+
+<!--      <div class="dropdown">
+        <button class="dropbtn"><i class="fas fa-language"></i>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="deutsch.html">Deutsch</a>
+        </div>
+      </div>-->
+      <a href="javascript:void(0);" class="icon" onclick="responsiveNavbarFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    <script>
+      function responsiveNavbarFunction() {
+        var x = document.getElementById("mynavbar");
+        if (x.className === "navbar") {
+          x.className += " responsive";
+        } else {
+          x.className = "navbar";
+        }
+      }
+    </script>
+
+    <header class="header">
+      <a href="https://bitcoineasy.github.io"> <img src="https://raw.githubusercontent.com/bitcoineasy/images/master/Bitcoin.png" alt="Bitcoin logo" class="logo"></a>
+      <h1>How to securely store Bitcoin in simple steps.</h1>
+    </header>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i style='font-size:24px' class='fas'>&#xf062;</i></button>
+
+    <article class="main">
+      <div id="toc_container">
+        <p class="toc_title">Contents</p>
+        <ol class="toc_list">
+          <li><a href="#HardwareWallet">Hardware Wallet</a></li>
+          <li><a href="#MobileWallet">Mobile Wallet</a></li>
+          <li><a href="#FullNode">ABCore</a></li>
+
+
+        </ol>
+      </div>
+
+      <i style="font-size:15px">last updated 27. October 2019</i>
+
+      <h2>Hardwarewallet</h2>
+      <p>Trezor is the oldest and most reputable hardware wallet. Vulnerabilities are quickly fixed with updates because the code is open source so many people can look for bugs in the code.</p>
+      <p>There are two very important security measures that can be implemented with hardware wallets. 1. pass phrase 2. multisig</p>
+
+      <h2>Softwarewallet</h2>
+      <p>Blockstream Green allows you to set up multisig your phone and their servers</p>
+
+
+      <h2>ABCore Full Node</h2>
+      <h3>How to run a Bitcoin full node on a cheap Android phone</h3>
+      <p>All you need is a cheap Android phone with external SD Card capability like the Nokia 2.1 or 5.1 or the Motorola Moto G7 Play and a 400gb SD Card.</p>
+      <p>Step 1: Install ABCore from FDroid, Google Play store or https://github.com/greenaddress/abcore.</p>
+      <p>Install the File Manager app from Fdroid (or any other file manager app that can tell you the path of your external sd card)</p>
+      <p>Step 2: Open the ABCore app and download the Bitcoin Deamon.
+      <p>Step 3: In Settings click on </p>
+
+
+      <p>If your phone goes into sleep mode and ABCore shuts down you can use an app like Wakelock v3 that keeps your cpu and wifi from shutting off in sleep mode.</p>
+
+
+
+
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('.toggle').click(function() {
+            $('.toggle').toggleClass('active')
+            $('body').toggleClass('night')
+          })
+        })
+      </script>
+
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+          scrollFunction()
+        };
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            document.getElementById("myBtn").style.display = "block";
+          } else {
+            document.getElementById("myBtn").style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+      </script>
+
+    </article>
+    <aside class="aside aside-1"></aside>
+    <aside class="aside aside-2"></aside>
+    <footer class="footer">
+      <p style="font-size:14px">contact: <SCRIPT TYPE="text/javascript">
+          emailE = 'protonmail.ch'
+
+          emailE = ('bitcoinsage' + '@' + emailE)
+
+          document.write('<A href="mailto:' + emailE + '">' + emailE + '</a>')
+        </script>
+      </p>
+
+    </footer>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BTCMessage - Demo & About</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139357903-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-139357903-5');
+    </script>
+
+
+    <!-- Primary Meta Tags -->
+  <meta name="title" content="BTCMessage - Send any Bitcoin address a message">
+  <meta name="description" content="Send a message to any Bitcoin address, easily visible in any block explorer.
+  Each message line is displayed via an artificial vanity Bitcoin address.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://btcmessage.com">
+  <meta property="og:title" content="BTCMessage - Send any Bitcoin address a message">
+  <meta property="og:description" content="Send a message to any Bitcoin address, easily visible in any block explorer.
+  Each message line is displayed via an artificial vanity Bitcoin address.">
+  <meta property="og:image" content="https://btcmessage.com/header.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://btcmessage.com">
+  <meta property="twitter:title" content="BTCMessage - Send any Bitcoin address a message">
+  <meta property="twitter:description" content="Send a message to any Bitcoin address, easily visible in any block explorer.
+  Each message line is displayed via an artificial vanity Bitcoin address.">
+  <meta property="twitter:image" content="https://btcmessage.com/header.png">
+
+  </head>
+
+    <!-- <body onload="fetchIssues()"> -->
+    <body>
+    <div class="container">
+      <h1><a href="https://btcmessage.com/" style="text-decoration:none; color:black;"><b>BTC</b>Message<small></a> Demo & About</small></h1>
+
+      <div class="jumbotron" id="masterFormID">
+        <center>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/FxDSsH5nrB0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </center>
+
+        <h3><b>Purpose</b></h3>
+        <h4>
+          It is difficult to send an unsolicited message to a Bitcoin address, where a communication channel is yet to be established
+          (e.g.
+              <a href="https://bitcoin.stackexchange.com/questions/19893/how-to-send-bitcoin-with-a-message-attached" target="_blank">[1]</a>,
+              <a href="https://www.quora.com/How-can-I-contact-a-Bitcoin-address" target="_blank">[2]</a>,
+              <a href="https://www.reddit.com/r/Bitcoin/comments/85jj4k/btc_transaction_as_a_text_message/" target="_blank">[3]</a>,
+              <a href="https://www.reddit.com/r/btc/comments/49pp3n/eli5_how_to_embed_text_into_a_bitcoin_transaction/" target="_blank">[4]</a>,
+              <a href="https://bitcointalk.org/index.php?topic=1275775.0" target="_blank">[5]</a>).
+
+          No existing solution results in a message which is reasonably noticable to an unexpecting recipient. By sending a custom transaction we can enscribe a message into the blockchain which is easily noticeable in a block explorer.
+
+          <br><br>
+
+          Messages using the BTCMessage tool are <b>relatively expensive & public</b>, and therefore are not effective means of communication. But sometimes they can be useful:
+        </h4>
+
+        <h4>
+        <ul>
+          <li>To attempt to contact the mistaken recipient of an <a href="https://bitcoin.stackexchange.com/questions/50083/how-do-i-recover-bitcoin-sent-to-a-wrong-wallet-address" target="_blank">accidental transaction</a>.</li>
+          <li>To give someone <a href="https://www.blockchain.com/btc/tx/54215bf9b24db3dbf3463f305128caa0c6ac5be8fd6e7d5d534f494855fd1689" target="_blank">advice.</a></li>
+          <li>Leaving a small message along with a donation.</li>
+	  <li>Any other reason you wish to communicate..</li>
+        </ul>
+        </h4>
+
+	<h3><b>Don't bloat the blockchain!!1!</b></h3>
+        <h4>
+          These messages should not be sent often, as the message's unspendable transaction outputs (UTXO) increase the blockchain size. However, with currently over 65,000,000 unspent UTXOs, including likely millions of lost private keys, and ocassional message will have little impact. Spammers already use their own tools for scams & ads via custom adresses and dusting.
+	
+        </h4>
+
+
+
+
+        <h3><b>How it works</b></h3>
+
+        <h4>Creating such long vanity addresses legitimately is essentially impossible. </br>Instead we can forge one.
+        </h4>
+
+        <h4>Bitcoin addresses are only valid if they have a valid checksum, meaning that it's highly likely any selected 34 characters will not be a valid address. To forge an address we instead:
+        </h4>
+
+        <h4>
+        <ol>
+          <li>Decide upon the text we wish to include in our address.</li>
+          <li>Pad the address up to 33 characters.</li>
+          <li>Convert this base58 address back into bytes.</li>
+          <li>Recalculate the checksum from the first 21 bytes, and use it to overwrite the last 4 bytes.</li>
+          <li>Convert the address bytes back to base58 format.</li>
+          <li>Any other reason you wish to attempt to communicate with an address.</li>
+        </ol>
+        </h4>
+
+        <h4>The checksum uses the first 21 bytes of the address, hashes it twice with SHA256 and then takes the first 4 bytes of this hash; which will comprise the last 4 bytes of our address.
+        </h4>
+
+        <h4>For a <a href="https://nickfarrow.com/Fake-Bitcoin-Vanity-Addresses/" target="_blank">full tutorial how to do this in C, please see my website</a>.</h4>
+
+        <h3><b>1BTCmsg Header</b></h3>
+        <h4>This is an optional message header which identifies the transaction as a message, I own this address so might get a few cents from each message.
+          <br><br>
+          I am currently searching for a vanity address "1BTCMessage...", which for a case insensitive match will take ~70 days on my GTX 970. I'm using shorter ones until I find a match, or a better solution.
+        </h4>
+
+        <h3><b>BIP0069</b></h3>
+        <h4>Before 2015, there was no standard for how inputs outputs of Bitcoin transactions should be ordered. As a result, wallets could often have discenable fingerprints based on how they composed transactions.
+
+        <br><br>
+
+        <a href="https://en.bitcoin.it/wiki/BIP_0069" target="_blank">BIP0069</a> introduced a standard for ordering where outputs are first ordered by amount, and then secondly by the `scriptPubKeys` byte arrays.
+
+        <br><br>
+
+        We use this to our advantage to order our message, by using ascending output amounts our message will display in the correct order.
+        </h4>
+
+        <h3><b>Feedback</b></h3>
+        <h4>Any to feature requests/suggestions please <a href="mailto:nick@nickfarrow.com" target="_blank">email me</a> at nick@nickfarrow.com.
+        </h4>
+        <h4><a href="https://nickfarrow.com" target="_blank">nickfarrow.com</a></h4>
+      </div>
+
+    <div class="footer">
+        <h4>Donate: bc1qjxnk5skkjf3t7zcv7jclse2sacvewrs5aucetc</h4>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://chancejs.com/chance.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="base58_2.js"></script>
+  </body>
+</html>
